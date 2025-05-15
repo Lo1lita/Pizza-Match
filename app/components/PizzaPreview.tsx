@@ -1,4 +1,7 @@
+'use client';
+
 import React, { useRef, useMemo } from 'react';
+import Image from 'next/image'; // <-- Use Next.js Image component
 import ingredients from '../data/ingredients';
 
 interface PizzaPreviewProps {
@@ -8,7 +11,9 @@ interface PizzaPreviewProps {
 const GRID_SIZE = 4;
 
 const PizzaPreview: React.FC<PizzaPreviewProps> = ({ selectedIngredientIds }) => {
-  const layoutCache = useRef<Record<string, { top: number; left: number; rotation: number; scale: number }[]>>({});
+  const layoutCache = useRef<
+    Record<string, { top: number; left: number; rotation: number; scale: number }[]>
+  >({});
 
   const selectedIngredients = useMemo(() => {
     return ingredients.filter((ing) => selectedIngredientIds.includes(ing.id));
@@ -34,12 +39,7 @@ const PizzaPreview: React.FC<PizzaPreviewProps> = ({ selectedIngredientIds }) =>
       if (ingredient.id === 'ou') {
         // Only one egg in the center
         layoutCache.current[ingredient.id] = [
-          {
-            top: 40,
-            left: 40,
-            rotation: 0,
-            scale: 1,
-          },
+          { top: 40, left: 40, rotation: 0, scale: 1 },
         ];
       } else if (!layoutCache.current[ingredient.id]) {
         layoutCache.current[ingredient.id] = [];
@@ -72,7 +72,7 @@ const PizzaPreview: React.FC<PizzaPreviewProps> = ({ selectedIngredientIds }) =>
     });
 
     return instances;
-  }, [selectedIngredientIds.join(',')]);
+  }, [selectedIngredients, selectedIngredientIds]);
 
   return (
     <div className="w-full max-w-[95vw] sm:max-w-3xl mx-auto aspect-square">
@@ -90,15 +90,17 @@ const PizzaPreview: React.FC<PizzaPreviewProps> = ({ selectedIngredientIds }) =>
               style={{
                 top: `${item.top}%`,
                 left: `${item.left}%`,
-
-                width: `${item.id === 'egg' ? 25 : 100 / GRID_SIZE * 0.7}%`,
+                width: `${item.id === 'egg' ? 25 : (100 / GRID_SIZE) * 0.7}%`,
+                transform: `rotate(${item.rotation}deg) scale(${item.scale})`,
               }}
             >
-              <img
+              <Image
                 src={item.image}
                 alt={item.name}
-          
+                width={100}
+                height={100}
                 style={{ opacity: 0.9 }}
+                className="w-full h-auto object-contain"
               />
             </div>
           ))}

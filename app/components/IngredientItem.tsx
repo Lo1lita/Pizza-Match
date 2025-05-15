@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image';
 import { Ingredient } from '../types';
 
 interface IngredientItemProps {
@@ -21,11 +22,13 @@ const IngredientItem: React.FC<IngredientItemProps> = ({
         }`}
       onClick={() => onToggle(ingredient.id)}
     >
-      <div className="w-16 h-16 p-2 flex-shrink-0">
-        <img 
+      <div className="w-16 h-16 p-2 flex-shrink-0 relative">
+        <Image 
           src={ingredient.image} 
           alt={ingredient.name} 
-          className="w-full h-full object-cover rounded" 
+          fill
+          className="object-cover rounded"
+          sizes="64px"
         />
       </div>
       

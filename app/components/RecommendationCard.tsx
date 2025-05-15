@@ -1,17 +1,11 @@
 import React from 'react';
 import { PizzaRecommendation } from '../types';
-import ingredients from '../data/ingredients';
 
 interface RecommendationCardProps {
   pizza: PizzaRecommendation;
 }
 
 const RecommendationCard: React.FC<RecommendationCardProps> = ({ pizza }) => {
-  // Get full ingredient objects for this pizza
-  const pizzaIngredients = ingredients.filter(ing => 
-    pizza.ingredients.includes(ing.id)
-  );
-  
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg border border-amber-100 h-full flex flex-col">
       <div className="relative">

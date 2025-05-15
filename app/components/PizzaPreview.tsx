@@ -54,7 +54,7 @@ const PizzaPreview: React.FC<PizzaPreviewProps> = ({ selectedIngredientIds }) =>
           layoutCache.current[ingredient.id].push({
             top: row * cellSize + offsetY,
             left: col * cellSize + offsetX,
-            rotation: Math.random() * 5,
+            rotation: Math.random() * 0,
             scale: 0.8 + Math.random() * 0.4,
           });
         }

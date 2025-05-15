@@ -102,7 +102,7 @@ const traditionalPizzas: TraditionalPizza[] = [
   {
     id: 'quatro-formagi',
     name: 'Quatro Formagi',
-    ingredients: ['gorgonzola', 'granna', 'parmezan'],
+    ingredients: ['mozarela','gorgonzola', 'granna', 'parmezan'],
     description: 'SINGLE=29 LEI\nMEDIE=58 LEI\nFAMILY=75 LEI',
         image: '/pizzaImages/QF.jpg',
   },

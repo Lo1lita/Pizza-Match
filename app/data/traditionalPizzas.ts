@@ -62,7 +62,7 @@ const traditionalPizzas: TraditionalPizza[] = [
     name: 'Carbonara',
     ingredients: ['bacon', 'parmezan', 'ou'],
     description: 'SINGLE=30 LEI\nMEDIE=60 LEI\nFAMILY=78 LEI',
-    image: '/pizzaImages/C.jpg',
+    image: '/pizzaImages/PC.jpg',
   },
   {
     id: 'diavola',

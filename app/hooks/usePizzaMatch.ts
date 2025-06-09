@@ -11,32 +11,34 @@ export const usePizzaMatch = () => {
 
     setTimeout(() => {
       const matches = traditionalPizzas.map((pizza: TraditionalPizza) => {
-        const matching = pizza.ingredients.filter(i => selectedIngredients.includes(i));
-        const extraSelected = selectedIngredients.filter(i => !pizza.ingredients.includes(i));
+        const matchedCount = pizza.ingredients.filter(i =>
+          selectedIngredients.includes(i)
+        ).length;
 
-        // Base score: matched / total ingredients in pizza
-        let score = (matching.length / pizza.ingredients.length) * 100;
+        const s = selectedIngredients.length;
+        const p = pizza.ingredients.length;
 
-        // Dynamic penalty based on number of selected ingredients
-        const penaltyPerExtra = selectedIngredients.length > 0
-          ? (1 / selectedIngredients.length) * 100
-          : 0;
+        // formula compactă (Dice × boost)
+        const score =
+          s && p ? (2 * matchedCount * matchedCount) / (s * (s + p)) : 0;
 
-        // Apply penalty
-        score -= extraSelected.length * penaltyPerExtra;
-
-        const matchScore = Math.max(0, Math.round(score));
-
-        return {
-          ...pizza,
-          matchScore
-        };
+        return { ...pizza, matchScore: Math.round(score * 100) };
       });
 
-      const topMatches = matches
-        .filter(p => p.matchScore >= 5)
-        .sort((a, b) => b.matchScore - a.matchScore)
-        .slice(0, 3);
+      // 1️⃣ păstrăm doar scoruri peste 10 și sortăm descrescător
+      const sorted = matches
+        .filter(p => p.matchScore > 0)
+        .sort((a, b) => b.matchScore - a.matchScore);
+
+      // 2️⃣ determinăm pragul de la locul 3 (dacă există)
+      let thresholdScore = 0;
+      if (sorted.length >= 3) {
+        thresholdScore = sorted[2].matchScore;
+      }
+
+      // 3️⃣ includem tot ce are scor ≥ thresholdScore
+      const topMatches =
+        thresholdScore === 0 ? sorted : sorted.filter(p => p.matchScore >= thresholdScore);
 
       setRecommendations(topMatches);
       setIsLoading(false);

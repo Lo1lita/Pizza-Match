@@ -34,7 +34,7 @@ export const usePizzaMatch = () => {
       });
 
       const topMatches = matches
-        .filter(p => p.matchScore >= 10)
+        .filter(p => p.matchScore >= 5)
         .sort((a, b) => b.matchScore - a.matchScore)
         .slice(0, 3);
 

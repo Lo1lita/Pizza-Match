@@ -49,12 +49,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
             
             {/* Stânga: logo + titlu */}
             <div className="flex items-center gap-3">
-              <Image // Changed <img> to <Image>
+              <Image 
                 src="/MatchIcon.png"
                 alt="Pizza Match Icon"
-                width={40} // Added width
-                height={40} // Added height
-                className="rounded-full object-cover shadow-sm" // Kept relevant classes
+                width={40} 
+                height={40} 
               />
               <h1 className="text-2xl font-bold tracking-wide">
                 PizzaMatch –{' '}

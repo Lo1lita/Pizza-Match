@@ -2,7 +2,6 @@ import React from 'react';
 import { PizzaRecommendation } from '../types';
 import RecommendationCard from './RecommendationCard';
 
-
 interface RecommendationSectionProps {
   recommendations: PizzaRecommendation[];
   isLoading: boolean;
@@ -18,6 +17,7 @@ const RecommendationSection: React.FC<RecommendationSectionProps> = ({
 }) => {
   return (
     <div className="flex flex-col h-full">
+      {/* Buton Recomandă */}
       <div className="mb-6 flex justify-center">
         <button
           onClick={onFindMatches}
@@ -44,22 +44,29 @@ const RecommendationSection: React.FC<RecommendationSectionProps> = ({
         </button>
       </div>
 
+      {/* Rezultate Recomandare */}
       {recommendations.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {recommendations.map((pizza) => (
-            <RecommendationCard key={pizza.id} pizza={pizza} />
-          ))}
-        </div>
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            {recommendations.map((pizza) => (
+              <RecommendationCard key={pizza.id} pizza={pizza} />
+            ))}
+          </div>
+
+          {/* Mesaj marketing-friendly după recomandări */}
+          <p className="text-center text-sm text-gray-600 mt-6 italic">
+            Recomandarea noastră e doar începutul – la comandă poți adăuga extra ingrediente sau scoate ingrediente!
+          </p>
+
+        </>
       ) : (
         <div className="flex flex-col items-center justify-center flex-grow text-center p-8">
           {hasSelectedIngredients ? (
             <div className="opacity-75">
-
               <p className="text-lg font-medium text-gray-700">Fă clic pe „Recomandă o Pizza” pentru a vedea potrivirile!</p>
             </div>
           ) : (
             <div className="opacity-75">
-
               <p className="text-lg font-medium text-gray-700">
                 Selectează ingrediente din panoul din stânga pentru a primi recomandări
               </p>

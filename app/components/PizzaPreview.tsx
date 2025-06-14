@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef, useMemo } from 'react';
-import Image from 'next/image'; // <-- Use Next.js Image component
+import Image from 'next/image';
 import ingredients from '../data/ingredients';
 
 interface PizzaPreviewProps {
@@ -36,7 +36,8 @@ const PizzaPreview: React.FC<PizzaPreviewProps> = ({ selectedIngredientIds }) =>
     const padding = cellSize * 0.15;
 
     selectedIngredients.forEach((ingredient) => {
-      if (ingredient.id === 'ou') {
+      // Assuming 'ou' should be 'egg' based on the later conditional
+      if (ingredient.id === 'egg') {
         // Only one egg in the center
         layoutCache.current[ingredient.id] = [
           { top: 40, left: 40, rotation: 0, scale: 1 },
@@ -54,7 +55,7 @@ const PizzaPreview: React.FC<PizzaPreviewProps> = ({ selectedIngredientIds }) =>
           layoutCache.current[ingredient.id].push({
             top: row * cellSize + offsetY,
             left: col * cellSize + offsetX,
-            rotation: Math.random() * 0,
+            rotation: Math.random() * 0, // This will always be 0
             scale: 0.8 + Math.random() * 0.4,
           });
         }
@@ -72,7 +73,7 @@ const PizzaPreview: React.FC<PizzaPreviewProps> = ({ selectedIngredientIds }) =>
     });
 
     return instances;
-  }, [selectedIngredients, selectedIngredientIds]);
+  }, [selectedIngredients]); // Removed selectedIngredientIds from here
 
   return (
     <div className="w-full max-w-[95vw] sm:max-w-3xl mx-auto aspect-square">

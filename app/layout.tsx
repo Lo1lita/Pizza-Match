@@ -1,6 +1,7 @@
 // app/layout.tsx
 import './globals.css';
 import { ReactNode } from 'react';
+import Image from 'next/image'; // Import the Image component
 
 interface RootLayoutProps {
   children: ReactNode;
@@ -48,10 +49,12 @@ export default function RootLayout({ children }: RootLayoutProps) {
             
             {/* Stânga: logo + titlu */}
             <div className="flex items-center gap-3">
-              <img
+              <Image // Changed <img> to <Image>
                 src="/MatchIcon.png"
                 alt="Pizza Match Icon"
-                className="w-10 h-10 rounded-full object-cover shadow-sm"
+                width={40} // Added width
+                height={40} // Added height
+                className="rounded-full object-cover shadow-sm" // Kept relevant classes
               />
               <h1 className="text-2xl font-bold tracking-wide">
                 PizzaMatch –{' '}
@@ -61,7 +64,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   rel="noopener noreferrer"
                   className="transition duration-300 hover:text-gray-700 hover:underline underline-offset-4"
                 >
-                  Pizza D’Angelo
+                  Pizza D&apos;Angelo {/* Escaped apostrophe here */}
                 </a>
               </h1>
             </div>
@@ -82,7 +85,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
 
         {/* Footer */}
         <footer className="bg-gray-800 text-white py-4 mt-8">
-          <div className="container mx-auto flex justify-between items-center px-4"> {/* Added flex and px-4 for spacing */}
+          <div className="container mx-auto flex justify-between items-center px-4">
             <p className="text-sm">
               <a 
                 href="https://pizzadangelo.vercel.app" 
@@ -90,10 +93,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 rel="noopener noreferrer"
                 className="text-white hover:text-gray-300 text-sm underline"
               >
-                &larr; Înapoi la Pizza D'Angelo
+                &larr; Înapoi la Pizza D&apos;Angelo {/* Escaped apostrophe here */}
               </a>
             </p>
-            <p className="text-sm">PizzaMatch – Cu drag din partea Pizza D’Angelo &copy; {new Date().getFullYear()}</p>
+            <p className="text-sm">PizzaMatch – Cu drag din partea Pizza D&apos;Angelo &copy; {new Date().getFullYear()}</p> {/* Escaped apostrophe here */}
           </div>
         </footer>
       </body>

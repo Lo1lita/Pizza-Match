@@ -1,4 +1,5 @@
 import React from 'react';
+import Image from 'next/image'; // Import the Image component
 import { PizzaRecommendation } from '../types';
 
 interface RecommendationCardProps {
@@ -9,10 +10,14 @@ const RecommendationCard: React.FC<RecommendationCardProps> = ({ pizza }) => {
   return (
     <div className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg border border-amber-100 h-full flex flex-col">
       <div className="relative">
-        <img 
-          src={pizza.image} 
-          alt={pizza.name} 
-          className="w-full h-48 object-cover" 
+        <Image
+          src={pizza.image}
+          alt={pizza.name}
+          width={600} // Add appropriate width
+          height={288} // Add appropriate height (h-48 * ~6 to maintain aspect for a typical width)
+          className="w-full h-48 object-cover"
+          // Consider adding 'priority' if this image is often above the fold
+          // priority={true}
         />
         <div className="absolute top-0 right-0 bg-amber-500 text-white text-lg font-bold py-1 px-3 rounded-bl-lg">
           {pizza.matchScore}%

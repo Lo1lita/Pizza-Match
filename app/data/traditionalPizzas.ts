@@ -32,14 +32,14 @@ const traditionalPizzas: TraditionalPizza[] = [
   {
     id: 'tonno-e-carcifi',
     name: 'Tonno e Carciofi',
-    ingredients: ['ton', 'carciofi'],
+    ingredients: ['ton', 'anghinare'],
     description: 'SINGLE=30 LEI\nMEDIE=60 LEI\nFAMILY=78 LEI',
     image: '/pizzaImages/TEC.jpg',
   },
   {
     id: 'con-carcifi',
     name: 'Con Carciofi',
-    ingredients: ['carciofi'],
+    ingredients: ['anghinare'],
     description: 'SINGLE=27 LEI\nMEDIE=54 LEI\nFAMILY=72 LEI',
     image: '/pizzaImages/CC.jpg',
   },
@@ -200,7 +200,7 @@ const traditionalPizzas: TraditionalPizza[] = [
   {
     id: 'quatro-formagi-e-salami',
     name: 'Quatro Formagi e Salami',
-    ingredients: ['gorgonzola', 'salam', 'parmezan','grana'],
+    ingredients: ['mozarella','gorgonzola', 'salam', 'parmezan','grana'],
     description: 'SINGLE=31 LEI\nMEDIE=62 LEI\nFAMILY=81 LEI',
         image: '/pizzaImages/QFS.jpg',
   },

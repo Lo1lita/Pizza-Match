@@ -167,8 +167,8 @@ const ingredients: Ingredient[] = [
     image: '/ingredientIcon/hribi.png',
   },
     {
-    id: 'carciofi',
-    name: 'Carciofi',
+    id: 'anghinare',
+    name: 'Anghinare',
     category: 'vegetable',
     image: '/ingredientIcon/car.png',
   },

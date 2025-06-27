@@ -1,16 +1,16 @@
 // app/layout.tsx
 import './globals.css';
 import { ReactNode } from 'react';
-import Image from 'next/image'; // Import the Image component
+import Image from 'next/image'; 
 
 interface RootLayoutProps {
   children: ReactNode;
 }
 
 export const metadata = {
-  title: 'Pizza Match – Alege ingrediente și descoperă pizza ideală | Pizza D’Angelo',
+  title: 'Pizza Match – Pizza D’Angelo | Alege ingrediente și descoperă pizza ideală',
   description:
-    'Descoperă pizza tradițională perfectă la Pizza D’Angelo! Alege ingredientele preferate, iar Pizza Match îți recomandă cele mai potrivite pizze autentice, exact pe gustul tău. Asortează-ți gustul cu rețeta ideală!',
+    'Folosește Pizza Match pentru a alege ingrediente și a primi recomandări reale de pizza delicioasă de la Pizza D’Angelo. Asortează-ți gustul cu rețeta ideală!',
   keywords:
     'pizza match, recomandare pizza, pizza tradițională, Pizza D’Angelo, pizza italiană, pizza match, pizza recommender, traditional pizza, Pizza D’Angelo, ingredient-based pizza finder, Italian pizza, autentic pizza',
   authors: [{ name: 'Simon Caleb Taloș' }],

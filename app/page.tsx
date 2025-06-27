@@ -37,15 +37,17 @@ export default function HomePage() {
             selectedIngredients={selectedIngredients}
             onToggleIngredient={handleToggleIngredient}
           />
-
           {/* Butonul „Deselectează tot” sub IngredientSelector */}
+          {/* This button will now only be visible on screens larger than 'md' (medium) */}
           <div className="flex justify-center mt-6">
+            <div className="md:block hidden">
             <button
               onClick={handleDeselectAll}
               className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-full shadow"
             >
               Deselectează tot
             </button>
+            </div>
           </div>
         </div>
 

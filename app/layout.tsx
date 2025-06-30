@@ -18,7 +18,7 @@ export const metadata = {
     title: 'Pizza Match – Găsește Pizza Tradițională Perfectă',
     description:
       'Folosește Pizza Match pentru a alege ingrediente și a primi recomandări reale de pizza delicioasă de la Pizza D’Angelo. Autentic, simplu și personalizat!',
-    url: 'https://pizza-match.vercel.app',
+    url: 'https://pizzadangelo-pizza-match.vercel.app',
     siteName: 'PizzaMatch',
     images: [
       {
@@ -59,7 +59,6 @@ export default function RootLayout({ children }: RootLayoutProps) {
                 PizzaMatch –{' '}
                 <a
                   href="https://pizzadangelo.vercel.app"
-                  target="_blank"
                   rel="noopener noreferrer"
                   className="transition duration-300 hover:text-gray-700 hover:underline underline-offset-4"
                 >

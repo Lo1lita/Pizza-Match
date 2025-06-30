@@ -8,7 +8,7 @@ export async function GET() {
   const body = `
 User-agent: *
 Allow: /
-Sitemap: https://pizza-match.vercel.app/sitemap.xml
+Sitemap: https://pizzadangelo-pizza-match.vercel.app/sitemap.xml
   `.trim();
 
   return new NextResponse(body, {

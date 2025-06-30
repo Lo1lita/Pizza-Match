@@ -5,7 +5,7 @@ import { NextResponse } from 'next/server';
 export const dynamic = 'force-static';
 
 export async function GET() {
-  const baseUrl = 'https://pizza-match.vercel.app';
+  const baseUrl = 'https://pizzadangelo-pizza-match.vercel.app';
 
   const pages = [
     '', // homepage
